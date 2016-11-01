@@ -74,6 +74,10 @@ div.zabuto_calendar .table tr td div.day {
     padding-bottom: 7px;
 }
 
+div.zabuto_calendar .table tr td div.day.sunday {
+    color: red;
+}
+
 /* actions and events */
 div.zabuto_calendar .table tr td.event div.day,
 div.zabuto_calendar ul.legend li.event {

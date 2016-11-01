@@ -275,7 +275,7 @@ $.fn.zabuto_calendar = function (options) {
                         var dateId = $calendarElement.attr('id') + '_' + dateAsString(year, month, currDayOfMonth);
                         var dayId = dateId + '_day';
 
-                        var $dayElement = $('<div id="' + dayId + '" class="day" >' + currDayOfMonth + '</div>');
+                        var $dayElement = $('<div id="' + dayId + '" class="day '+ (isSunday(year, month, currDayOfMonth)?' sunday ':'') +'" >' + currDayOfMonth + '</div>');
                         $dayElement.data('day', currDayOfMonth);
 
                         if ($calendarElement.data('showToday') === true) {
@@ -457,6 +457,11 @@ $.fn.zabuto_calendar = function (options) {
             var todayObj = new Date();
             var dateObj = new Date(year, month, day);
             return (dateObj.toDateString() == todayObj.toDateString());
+        }
+
+        function isSunday(year, month, day){
+            var dateObj = new Date(year, month, day);
+            return dateObj.getDay()===0;
         }
 
         function dateAsString(year, month, day) {
