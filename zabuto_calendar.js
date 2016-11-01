@@ -674,6 +674,14 @@ $.fn.zabuto_calendar_language = function (lang) {
                 dow_labels: ["Ma", "Ti", "Ke", "To", "Pe", "La", "Su"]
             };
             break;
+
+        case 'id':
+            return {
+                month_labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+                dow_labels: ["Sn", "Sl", "Rb", "Km", "Ju", "Sb", "Mg"]
+            };
+            break;
+
     }
 
 };
