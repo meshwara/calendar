@@ -237,7 +237,7 @@ $.fn.zabuto_calendar = function (options) {
 
                 var $dowHeaderRow = $('<tr class="calendar-dow-header"></tr>');
                 $(dowLabels).each(function (index, value) {
-                    $dowHeaderRow.append('<th>' + value + '</th>');
+                    $dowHeaderRow.append('<th '+ ((weekStartsOn === 0 && index===0) || (index===dowLabels.length-1) ? ' class="sunday" ':'') +'>' + value + '</th>');
                 });
                 $tableObj.append($dowHeaderRow);
             }

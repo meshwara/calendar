@@ -38,6 +38,10 @@ div.zabuto_calendar .table tr.calendar-dow-header th {
     background-color: #f0f0f0;
 }
 
+div.zabuto_calendar .table tr.calendar-dow-header th.sunday {
+    color: red;
+}
+
 div.zabuto_calendar .table tr:last-child {
     border-bottom: 1px solid #dddddd;
 }
