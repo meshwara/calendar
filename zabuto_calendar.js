@@ -40,6 +40,7 @@ $.fn.zabuto_calendar = function (options) {
         $calendarElement.data('ajaxSettings', opts.ajax);
         $calendarElement.data('legendList', opts.legend);
         $calendarElement.data('actionFunction', opts.action);
+        $calendarElement.data('hoverFunction', opts.hover);
         $calendarElement.data('actionNavFunction', opts.action_nav);
 
         drawCalendar();
@@ -297,6 +298,13 @@ $.fn.zabuto_calendar = function (options) {
                             });
                             $dowElement.click($calendarElement.data('actionFunction'));
                         }
+                        if (typeof($calendarElement.data('hoverFunction')) === 'function') {
+                            // $dowElement.addClass('dow-clickable');
+                            $dowElement.hover(function () {
+                                $calendarElement.data('selectedDate', $(this).data('date'));
+                            });
+                            $dowElement.hover($calendarElement.data('hoverFunction'));
+                        }
 
                         $dowRow.append($dowElement);
 
@@ -421,6 +429,10 @@ $.fn.zabuto_calendar = function (options) {
                         $dowElement.addClass('event-styled');
                         $dayElement.addClass(value.classname);
                     }
+                    // add tooltip
+                    $dowElement.addClass('zabuto_tooltip');
+                    $dowElement.attr('data-toggle','tooltip');
+                    $dowElement.attr('data-placement','bottom');
 
                     if (typeof(value.badge) !== 'undefined' && value.badge !== false) {
                         var badgeClass = (value.badge === true) ? '' : ' badge-' + value.badge;
@@ -448,6 +460,7 @@ $.fn.zabuto_calendar = function (options) {
                         }
                     }
                 });
+                $calendarElement.find('.zabuto_tooltip').tooltip({container:'body',html:true});
             }
         }
 
